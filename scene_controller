@@ -1,0 +1,43 @@
+package com.example.ap_3;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+
+import java.io.IOException;
+
+public class scene_controller {
+    private Scene s1;
+    private Stage s2;
+    private Parent root;
+    public scene_controller() {
+    }
+
+    public void switch_to_Scene1(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene1.fxml"));
+        Scene s1 = new Scene(fxmlLoader.load(), 320, 240);
+        //Parent root=FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        s2=(Stage)((Node)e.getSource()).getScene().getWindow();
+        s2.setScene(s1);
+        s2.show();
+    }
+    public void switch_to_Scene2(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene2.fxml"));
+        Scene s1 = new Scene(fxmlLoader.load());
+        //Parent root=FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        s2=(Stage)((Node)e.getSource()).getScene().getWindow();
+        s2.setScene(s1);
+        //s2.setFullScreen(true);
+        s2.show();
+    }
+    public void switch_to_home(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene2.fxml"));
+        Scene s1 = new Scene(fxmlLoader.load());
+        //Parent root=FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        s2=(Stage)((Node)e.getSource()).getScene().getWindow();
+        s2.setScene(s1);
+        s2.show();
+    }
+}
