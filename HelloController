@@ -1,0 +1,49 @@
+package com.example.ap_3;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+
+import java.io.IOException;
+public class HelloController {
+    private Scene s1;
+    private Stage s2;
+    private Parent root;
+  @FXML
+//    private Label welcomeText;
+//
+//    protected void onHelloButtonClick() {
+//    protected void onHelloButtonClick() {
+//        welcomeText.setText("Welcome to JavaFX Application!");
+//    }
+    public void PLAY(ActionEvent e){
+        System.out.println("Playing STick Hero Game");
+    }
+    public void switch_to_Scene1(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scene1.fxml"));
+        Scene s1 = new Scene(fxmlLoader.load());
+        //Parent root=FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        s2=(Stage)((Node)e.getSource()).getScene().getWindow();
+        s2.setScene(s1);
+        s2.setResizable(true);
+        //s2.setFullScreen(true);
+        s2.show();
+    }
+    public void switch_to_home(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene s1 = new Scene(fxmlLoader.load());
+        //Parent root=FXMLLoader.load(getClass().getResource("scene1.fxml"));
+        s2=(Stage)((Node)e.getSource()).getScene().getWindow();
+        s2.setScene(s1);
+        s2.setResizable(true);
+        //s2.setFullScreen(true);
+        s2.show();
+    }
+}
